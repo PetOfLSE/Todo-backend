@@ -1,5 +1,6 @@
 package com.example.todo.user.model.entity;
 
+import com.example.todo.common.enums.Role;
 import com.example.todo.security.jwt.entity.JwtEntity;
 import com.example.todo.todo.model.entity.TodoEntity;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
@@ -47,7 +48,8 @@ public class UserEntity {
 
     @Column(name = "roles")
     @Comment("사용자 권한")
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @OneToMany(mappedBy = "user")
     @Comment("사용자가 작성한 할 일 목록")
